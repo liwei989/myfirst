@@ -36,6 +36,22 @@ public class ThreadCooperation {
         }
     }
 
+    public static class DepositTask1 implements Runnable{
+
+        @Override
+        public void run() {
+            try{
+                while(true){
+                    account.deposit((int)(Math.random()*10)+1);
+                    Thread.sleep(1000);
+                }
+            }catch(InterruptedException ex){
+                ex.printStackTrace();
+            }
+
+        }
+    }
+
     public static class WithdrawTask implements Runnable{
 
         @Override
